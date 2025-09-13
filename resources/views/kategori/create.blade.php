@@ -1,6 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body { background: #f7f8fa; }
+    .container { background: #fff; border-radius: 14px; box-shadow: 0 2px 8px #0001; padding: 2.5rem 2.5rem 2rem 2.5rem; }
+    h3 { font-weight: bold; }
+    .form-label, label { font-weight: 500; }
+    .form-control:focus, textarea:focus { box-shadow: 0 0 0 2px #2222; border-color: #222; }
+    .btn { border-radius: 8px; font-weight: 500; }
+    .btn-dark { background: #222; border: none; }
+    .btn-outline-dark { border-radius: 8px; }
+    textarea.form-control { min-height: 90px; }
+</style>
 <div class="container mt-4">
     <h3>Kategori Surat &gt;&gt; Tambah</h3>
     <p>Tambahkan atau edit data kategori. Jika sudah selesai, jangan lupa untuk mengklik tombol "Simpan"</p>

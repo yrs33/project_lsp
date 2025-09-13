@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="mb-3 row">
-            <label for="keterangan" class="col-sm-2 col-form-label">Judul</label>
+            <label for="keterangan" class="col-sm-2 col-form-label">Keterangan</label>
             <div class="col-sm-8">
                 <textarea class="form-control" id="keterangan" name="keterangan" rows="3">{{ $kategori->keterangan }}</textarea>
             </div>

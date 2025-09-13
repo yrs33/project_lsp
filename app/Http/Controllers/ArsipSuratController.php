@@ -8,6 +8,40 @@ use App\Models\KategoriSurat;
 
 class ArsipSuratController extends Controller
 {
+    public function edit($id)
+    {
+        $arsip = ArsipSurat::findOrFail($id);
+        $kategori = KategoriSurat::all();
+        return view('arsip.edit', compact('arsip', 'kategori'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $arsip = ArsipSurat::findOrFail($id);
+        $request->validate([
+            'nomor_surat' => 'required',
+            'kategori_id' => 'required|exists:kategori_surats,id',
+            'judul' => 'required',
+            'tanggal_surat' => 'required|date',
+            'file_pdf' => 'nullable|mimes:pdf|max:2048',
+        ]);
+        $arsip->nomor_surat = $request->nomor_surat;
+        $arsip->kategori_id = $request->kategori_id;
+        $arsip->judul = $request->judul;
+        $arsip->tanggal_surat = $request->tanggal_surat;
+        if ($request->hasFile('file_pdf')) {
+            // Hapus file lama
+            if ($arsip->file_pdf && \Storage::disk('public')->exists('arsip/'.$arsip->file_pdf)) {
+                \Storage::disk('public')->delete('arsip/'.$arsip->file_pdf);
+            }
+            $file = $request->file('file_pdf');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $file->storeAs('arsip', $fileName, 'public');
+            $arsip->file_pdf = $fileName;
+        }
+        $arsip->save();
+        return redirect()->route('arsip.index')->with('success', 'Data berhasil diupdate');
+    }
     public function index(Request $request)
     {
         $search = $request->input('search');

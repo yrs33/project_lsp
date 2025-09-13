@@ -12,6 +12,8 @@ Route::get('/', function () {
 Route::get('/arsip', [ArsipSuratController::class, 'index'])->name('arsip.index');
 Route::get('/arsip/tambah', [ArsipSuratController::class, 'create'])->name('arsip.create');
 Route::post('/arsip', [ArsipSuratController::class, 'store'])->name('arsip.store');
+Route::get('/arsip/{id}/edit', [ArsipSuratController::class, 'edit'])->name('arsip.edit');
+Route::put('/arsip/{id}', [ArsipSuratController::class, 'update'])->name('arsip.update');
 Route::get('/arsip/{id}', [ArsipSuratController::class, 'show'])->name('arsip.show');
 Route::delete('/arsip/{id}', [ArsipSuratController::class, 'destroy'])->name('arsip.destroy');
 Route::view('/about', 'about')->name('about');

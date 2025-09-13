@@ -1,6 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body { background: #f7f8fa; }
+    .sidebar {
+        min-height: 100vh;
+        border-right: 2px solid #e0e0e0;
+        background: #f4f6fb;
+    }
+    .sidebar h5 { font-weight: bold; letter-spacing: 1px; }
+    .sidebar .nav-link { color: #222; font-weight: 500; border-radius: 8px; margin-bottom: 4px; }
+    .sidebar .nav-link.active, .sidebar .nav-link:hover { background: #222; color: #fff; }
+    .table-bordered th, .table-bordered td { vertical-align: middle; }
+    .table thead th { background: #222; color: #fff; border-color: #222; }
+    .btn-outline-dark, .btn-success { border-radius: 8px; }
+    .btn { border-radius: 8px; font-weight: 500; }
+    .btn-danger { background: #e74c3c; border: none; }
+    .btn-primary { background: #2980b9; border: none; }
+    .btn-dark { background: #222; border: none; }
+    .btn-success { background: #27ae60; border: none; }
+    .modal-content { border-radius: 18px; }
+    .form-control:focus { box-shadow: 0 0 0 2px #2222; border-color: #222; }
+    .table-bordered { background: #fff; }
+    .mt-4 { margin-top: 2rem!important; }
+    .sidebar ul { margin-top: 2rem; }
+    .btn-sm { padding: 0.25rem 0.7rem; font-size: 0.98em; }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-2 bg-light sidebar">
